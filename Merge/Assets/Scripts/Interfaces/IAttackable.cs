@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IAttackable 
+namespace MergeHero
 {
-    void Attack(GameObject target);
+    public interface IAttackable
+    {
+        void Attack(CharacterAttack characterAttack, GameObject target);
+    }
 }

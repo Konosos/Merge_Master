@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: Captain
   m_EditorClassIdentifier: 
-  health: 2500
-  damege: 300
+  health: 700
+  damege: 50
   nameChar: Captain
+  attackRate: 1
+  attackRange: 2.7
   prefab: {fileID: 2566281353751500070, guid: 4e22b5d0507fa0740aa03c8e5e450917, type: 3}
+  bullet: {fileID: 0}
   characterType: 0
   combatType: 0
   heroMeleeType: 2

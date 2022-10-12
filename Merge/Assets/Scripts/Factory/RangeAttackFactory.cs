@@ -18,7 +18,9 @@ namespace MergeHero
                     //break;
                 case RangeAttackType.GreenArrow:
                     return new GreenArrowAttack();
-                    //break;
+                //break;
+                case RangeAttackType.IronMan:
+                    return new IronManAttack();
 
             }
             return null;

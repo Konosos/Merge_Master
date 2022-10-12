@@ -32,8 +32,24 @@ namespace MergeHero
             CharacterStats charStats = charClone.GetComponent<CharacterStats>();
             charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.name, characterSO.characterType, characterSO.combatType);
             charStats.SetBoardPos(xBoard, yBoard);
+
             GameObject model = Instantiate(characterSO.prefab, Vector3.zero, Quaternion.identity);
             charStats.SetModel(model);
+            ModelInfor modelInfor = model.GetComponent<ModelInfor>();
+            
+
+            CharacterAttack charAttack = charClone.GetComponent<CharacterAttack>();
+            charAttack.attackable = AttackFactory.Create(characterSO.combatType).CreateAttack(characterSO.rangeAttackType);
+            charAttack.attackRange = characterSO.attackRange;
+            charAttack.attackRate = characterSO.attackRate;
+            charAttack.bullet = characterSO.bullet;
+
+            charAttack.firePoint = modelInfor.firePoint;
+
+            modelInfor.animationControllerListener.characterAttack = charAttack;
+
+            CharacterAnimation charAnimation = charClone.GetComponent<CharacterAnimation>();
+            charAnimation.animator = modelInfor.animator;
 
             return charClone;
         }

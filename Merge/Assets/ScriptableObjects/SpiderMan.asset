@@ -15,11 +15,14 @@ MonoBehaviour:
   health: 200
   damege: 30
   nameChar: SpiderMan
+  attackRate: 1
+  attackRange: 1000
   prefab: {fileID: 7831645114264250080, guid: 1098c43302928b74f8120cc08d6ff643, type: 3}
+  bullet: {fileID: 3919435613400015856, guid: 3bd6d11d8b9d90b42a3c022961306b40, type: 3}
   characterType: 0
   combatType: 1
   heroMeleeType: 0
-  heroRangeType: 2
+  heroRangeType: 1
   monsterMeleeType: 0
   monsterRangeType: 0
-  rangeAttackType: 0
+  rangeAttackType: 3

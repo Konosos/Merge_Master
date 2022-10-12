@@ -51,12 +51,12 @@ namespace MergeHero
             {
                 CreateHero(data.isPlayer, data.isWarrior, data.id, data.xBoard, data.yBoard);
             }*/
-            CreateChar("Batman", 0, 0);
-            CreateChar("SpiderMan", 2, 0);
-            CreateChar("Thor", 2, 2);
-            CreateChar("Batman", 1, 0);
-            CreateChar("SpiderMan", 2, 1);
-            CreateChar("Thor", 3, 2);
+            CreateChar(GameConfigs.BATMAN_NAME, 0, 3);
+            CreateChar(GameConfigs.SPIDERMAN_NAME, 2, 0);
+            CreateChar(GameConfigs.LONGLEGS_NAME, 2, 6);
+            CreateChar(GameConfigs.BATMAN_NAME, 1, 3);
+            CreateChar(GameConfigs.SPIDERMAN_NAME, 2, 1);
+            CreateChar(GameConfigs.LONGLEGS_NAME, 3, 5);
 
         }
 
@@ -126,7 +126,7 @@ namespace MergeHero
                                     continue;
                                 curXBoard = j;
                                 curYBoard = i;
-                                meshCell.transform.position = new Vector3(-8f + 4 * curXBoard, 0.52f, -12f + 4 * curYBoard);
+                                meshCell.transform.position = new Vector3(-8f + 4 * curXBoard, 0.55f, -12f + 4 * curYBoard);
                             }
                         }
                     }

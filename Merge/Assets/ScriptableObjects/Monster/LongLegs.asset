@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
+  m_Name: LongLegs
+  m_EditorClassIdentifier: 
+  health: 200
+  damege: 30
+  nameChar: LongLegs
+  attackRate: 1
+  attackRange: 1000
+  prefab: {fileID: 8201221627551971946, guid: d7efd5441b51e2a4596495d747f3c7d7, type: 3}
+  bullet: {fileID: 6368346867250261023, guid: 65457c71ca129ee42b6ee25dcffef27e, type: 3}
+  characterType: 1
+  combatType: 1
+  heroMeleeType: 0
+  heroRangeType: 0
+  monsterMeleeType: 0
+  monsterRangeType: 1
+  rangeAttackType: 4

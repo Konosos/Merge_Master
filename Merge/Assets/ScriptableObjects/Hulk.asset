@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: Hulk
   m_EditorClassIdentifier: 
-  health: 1200
-  damege: 150
+  health: 300
+  damege: 20
   nameChar: Hulk
+  attackRate: 1
+  attackRange: 2.7
   prefab: {fileID: 7559173222340883993, guid: 3cc8684ad8e63a3468a89c7398ec3e61, type: 3}
+  bullet: {fileID: 0}
   characterType: 0
   combatType: 0
   heroMeleeType: 1

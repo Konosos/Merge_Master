@@ -15,11 +15,14 @@ MonoBehaviour:
   health: 500
   damege: 70
   nameChar: Batman
+  attackRate: 1
+  attackRange: 1000
   prefab: {fileID: 1467581003608687075, guid: 71eabdbf3120c284f8a9963d6755fe70, type: 3}
+  bullet: {fileID: 5481640524403763043, guid: 9391f7d6f8921f345b778f1e113c9fac, type: 3}
   characterType: 0
   combatType: 1
   heroMeleeType: 0
-  heroRangeType: 1
+  heroRangeType: 2
   monsterMeleeType: 0
   monsterRangeType: 0
-  rangeAttackType: 1
+  rangeAttackType: 2
