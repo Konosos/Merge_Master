@@ -7,6 +7,7 @@ public class CharacterSO : ScriptableObject
 {
     public int health;
     public int damege;
+    public int power;
     public string nameChar;
     public float attackRate;
     public float attackRange;
@@ -36,10 +37,10 @@ public class CharacterSO : ScriptableObject
 
 public enum CharacterType { Hero, Monster }
 public enum CombatType { Melee, Range}
-public enum HeroMeleeType { None, Hulk, Captain, Thor}
+public enum HeroMeleeType { None, Captain, Thor, Hulk }
 public enum HeroRangeType { None, SpiderMan, Batman, GreenArrow }
-public enum MonsterMeleeType { None, Demon, Kissy, Huggy }
-public enum MonsterRangeType { None, LongLegs, Whitty }
+public enum MonsterMeleeType { None, Red, Whitty, Blue, Kissy, Huggy }
+public enum MonsterRangeType { None, Orange, Green, LongLegs }
 public enum RangeAttackType { None, SpiderMan, Batman, GreenArrow, IronMan }
 public enum AnimStates { Idle, Run, Victory, Lose, Attack}
 

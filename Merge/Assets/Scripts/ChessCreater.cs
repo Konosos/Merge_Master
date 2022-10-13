@@ -54,6 +54,36 @@ namespace MergeHero
             return charClone;
         }
 
+        public string PowerToName(CharacterType characterType, CombatType combatType, int power)
+        {
+            CharacterSO characterSO = Array.Find(characterSOs, character => character.power == power && character.characterType == characterType && character.combatType == combatType);
+            if(characterSO != null)
+            {
+
+                return characterSO.name;
+            }
+            else
+            {
+                LogUtils.Log("Not character with power = " + power);
+                return null;
+            }
+
+        }
+
+        public int NameToPower(string name)
+        {
+            CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == name);
+            if (characterSO != null)
+            {
+                return characterSO.power;
+            }
+            else
+            {
+                LogUtils.Log("Not character with name = " + name);
+                return 0;
+            }
+        }
+
         public string GetNameOfNextLecel(string charName)
         {
             CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == charName);

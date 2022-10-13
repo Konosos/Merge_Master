@@ -11,7 +11,9 @@ namespace MergeHero
         
         public void OnPunchEnd()
         {
-            if(characterAttack != null)
+            if (GameManager.Instance.matchEnd)
+                return;
+            if (characterAttack != null)
             {
                 characterAttack.attackable.Attack(characterAttack, characterAttack.enemy);
             }

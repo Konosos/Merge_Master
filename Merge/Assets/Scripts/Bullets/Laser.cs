@@ -16,13 +16,19 @@ namespace MergeHero
         {
             lineRenderer.SetPosition(1, transform.position);
             lineRenderer.SetPosition(0, transform.position);
-            Invoke("DestroyMySelf", 3f);
+            Invoke("DestroyMySelf", 2f);
         }
 
         // Update is called once per frame
         void Update()
         {
             transform.Translate(dir * Time.deltaTime * speed);
+            Vector3 laserLength = lineRenderer.GetPosition(0) - lineRenderer.GetPosition(1);
+            if (laserLength.magnitude >= 40)
+            {
+                Vector3 endPos = transform.position - 40 * dir;
+                lineRenderer.SetPosition(1, endPos);
+            }
             lineRenderer.SetPosition(0, transform.position);
         }
         private void OnTriggerEnter(Collider other)

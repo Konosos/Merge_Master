@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: LongLegs
   m_EditorClassIdentifier: 
-  health: 200
-  damege: 30
+  health: 150
+  damege: 44
+  power: 400
   nameChar: LongLegs
   attackRate: 1
   attackRange: 1000
@@ -24,5 +25,5 @@ MonoBehaviour:
   heroMeleeType: 0
   heroRangeType: 0
   monsterMeleeType: 0
-  monsterRangeType: 1
+  monsterRangeType: 3
   rangeAttackType: 4

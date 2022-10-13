@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: Kissy
   m_EditorClassIdentifier: 
-  health: 700
-  damege: 50
+  health: 732
+  damege: 58
+  power: 800
   nameChar: Kissy
   attackRate: 1
   attackRange: 2.7
@@ -23,6 +24,6 @@ MonoBehaviour:
   combatType: 0
   heroMeleeType: 0
   heroRangeType: 0
-  monsterMeleeType: 2
+  monsterMeleeType: 4
   monsterRangeType: 0
   rangeAttackType: 0

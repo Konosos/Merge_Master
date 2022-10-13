@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class GameConfigs 
 {
-    public static readonly string BATMAN_NAME = "BatMan";
+    public static readonly string BATMAN_NAME = "Batman";
     public static readonly string CAPTAIN_NAME = "Captain";
     public static readonly string HULK_NAME = "Hulk";
     public static readonly string SPIDERMAN_NAME = "SpiderMan";

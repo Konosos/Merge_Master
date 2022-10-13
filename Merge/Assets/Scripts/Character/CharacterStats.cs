@@ -27,6 +27,43 @@ namespace MergeHero
         void Start()
         {
             healthBar.SetMaxHealth(health);
+            switch (characterType)
+            {
+                case CharacterType.Hero:
+                    MatchManager.Instance.herosInMatch.Add(this);
+                    GameManager.Instance.SavePlayerChess();
+                    break;
+                case CharacterType.Monster:
+                    MatchManager.Instance.monstersInMatch.Add(this);
+                    break;
+            }
+        }
+
+        private void OnEnable()
+        {
+            
+            
+        }
+
+        private void OnDestroy()
+        {
+            switch (characterType)
+            {
+                case CharacterType.Hero:
+                    MatchManager.Instance.herosInMatch.Remove(this);
+                    
+                    break;
+                case CharacterType.Monster:
+                    MatchManager.Instance.monstersInMatch.Remove(this);
+                    break;
+            }
+        }
+
+        public IEnumerator DestroyMe()
+        {
+            Destroy(this.gameObject);
+            yield return new WaitForEndOfFrame();
+            GameManager.Instance.SavePlayerChess();
         }
 
         public void SetUpStats(int setHealth, int setDamege, string setName, CharacterType setCharacterType, CombatType setCombatType)
@@ -70,6 +107,8 @@ namespace MergeHero
 
         public void TakeDamege(int damege)
         {
+            if (GameManager.Instance.matchEnd)
+                return;
             if (isDeath)
                 return;
             health -= damege;
@@ -83,11 +122,21 @@ namespace MergeHero
 
         private void Death()
         {
+            
             charController.characterAnimation.Victory();
             
             rb.isKinematic = true;
             coll.isTrigger = true;
             charController.characterMovement.MoveIsStopped(true);
+            switch (characterType)
+            {
+                case CharacterType.Hero:
+                    MatchManager.Instance.IsHeroAllDie();
+                    break;
+                case CharacterType.Monster:
+                    MatchManager.Instance.IsMonsterAllDie();
+                    break;
+            }
             //charController.characterMovement.GetAgent().enabled = false;
         }
     }
