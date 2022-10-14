@@ -30,7 +30,8 @@ namespace MergeHero
             CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == nameChar);
             GameObject charClone = Instantiate(charPrefab, pos, Quaternion.identity);
             CharacterStats charStats = charClone.GetComponent<CharacterStats>();
-            charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.name, characterSO.characterType, characterSO.combatType);
+
+            charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.name, characterSO.characterType, characterSO.combatType, characterSO.power);
             charStats.SetBoardPos(xBoard, yBoard);
 
             GameObject model = Instantiate(characterSO.prefab, Vector3.zero, Quaternion.identity);
@@ -40,6 +41,7 @@ namespace MergeHero
 
             CharacterAttack charAttack = charClone.GetComponent<CharacterAttack>();
             charAttack.attackable = AttackFactory.Create(characterSO.combatType).CreateAttack(characterSO.rangeAttackType);
+
             charAttack.attackRange = characterSO.attackRange;
             charAttack.attackRate = characterSO.attackRate;
             charAttack.bullet = characterSO.bullet;
@@ -84,7 +86,7 @@ namespace MergeHero
             }
         }
 
-        public string GetNameOfNextLecel(string charName)
+        public string GetNameOfNextLevel(string charName)
         {
             CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == charName);
             CharacterSO nextLevelSO = null;
@@ -106,6 +108,34 @@ namespace MergeHero
             if (nextLevelSO == null)
                 return null;
             return nextLevelSO.name;
+        }
+
+        public int GetLevel(string charName)
+        {
+            CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == charName);
+
+            if (characterSO.characterType == CharacterType.Hero)
+            {
+                switch (characterSO.combatType)
+                {
+                    case CombatType.Melee:
+                        return (int)characterSO.heroMeleeType;
+                    case CombatType.Range:
+                        return (int)characterSO.heroRangeType;
+                }
+            }
+            else
+            {
+                switch (characterSO.combatType)
+                {
+                    case CombatType.Melee:
+                        return (int)characterSO.monsterMeleeType;
+                    case CombatType.Range:
+                        return (int)characterSO.monsterRangeType;
+                }
+            }
+            LogUtils.Log("Bug in GetLevel");
+            return 0;
         }
     }
 }

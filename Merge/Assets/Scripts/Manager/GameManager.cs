@@ -63,7 +63,7 @@ namespace MergeHero
 
         private void Start()
         {
-
+              
         }
 
         
@@ -276,50 +276,6 @@ namespace MergeHero
 
             GameUtils.SavePlayerData(UserData);
         }
-        /*
-        
-
-        public void SellWarriorBut()
-        {
-            if (curGameData.money < curGameData.priceWarrior)
-                return;
-            for (int j = 2; j >= 0; j--)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    if (heros[i, j] == null)
-                    {
-                        CreateHero(true, true, 1, i, j);
-                        curGameData.money -= curGameData.priceWarrior;
-                        curGameData.priceWarrior += 200;
-                        UIManager.instance.ShowMoney(curGameData.money);
-                        UIManager.instance.ShowWarriorPrice(curGameData.priceWarrior);
-                        goto go;
-                    }
-                }
-            }
-        go:;
-        }
-        public void SellArcherBut()
-        {
-            if (curGameData.money < curGameData.priceArcher)
-                return;
-            for (int j = 0; j <= 2; j++)
-            {
-                for (int i = 4; i >= 0; i--)
-                {
-                    if (heros[i, j] == null)
-                    {
-                        CreateHero(true, false, 1, i, j);
-                        curGameData.money -= curGameData.priceArcher;
-                        curGameData.priceArcher += 200;
-                        UIManager.instance.ShowMoney(curGameData.money);
-                        UIManager.instance.ShowArcherPrice(curGameData.priceArcher);
-                        goto go;
-                    }
-                }
-            }
-        go:;
-        }*/
+       
     }
 }

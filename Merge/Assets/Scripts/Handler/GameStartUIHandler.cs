@@ -38,16 +38,17 @@ namespace MergeHero
         {
             GameManager.Instance.MatchStarted();
             GamePlayUIController.Instance.GameStartUiClose();
+            if(EvenManager.OnGameStarted != null)
+            {
+                EvenManager.OnGameStarted.Invoke();
+            }
         }
 
-        public void SellWarrior()
+        public void AddMoneyBtn()
         {
-            MatchManager.Instance.SellWarrior();
+            GameManager.Instance.AddCoin(1000);
         }
 
-        public void SellArcher()
-        {
-            MatchManager.Instance.SellArcher();
-        }
+        
     }
 }

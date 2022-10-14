@@ -14,6 +14,7 @@ namespace MergeHero
         protected int health;
         protected int damege;
         public string charName;
+        public int power;
 
         public CharacterType characterType;
         public CombatType combatType;
@@ -32,6 +33,7 @@ namespace MergeHero
                 case CharacterType.Hero:
                     MatchManager.Instance.herosInMatch.Add(this);
                     GameManager.Instance.SavePlayerChess();
+                    StartCoroutine(OnHeroSpawn());
                     break;
                 case CharacterType.Monster:
                     MatchManager.Instance.monstersInMatch.Add(this);
@@ -59,20 +61,44 @@ namespace MergeHero
             }
         }
 
+        private IEnumerator OnHeroSpawn()
+        {
+            yield return new WaitForEndOfFrame();
+            GameManager.Instance.SavePlayerChess();
+            if (combatType == CombatType.Melee)
+            {
+                if (EvenManager.OnHeroWarriorSpawn != null)
+                {
+                    EvenManager.OnHeroWarriorSpawn.Invoke();
+                }
+
+            }
+            else
+            {
+                if (EvenManager.OnHeroArcherSpawn != null)
+                {
+                    EvenManager.OnHeroArcherSpawn.Invoke();
+                }
+
+            }
+        }
+
         public IEnumerator DestroyMe()
         {
             Destroy(this.gameObject);
             yield return new WaitForEndOfFrame();
             GameManager.Instance.SavePlayerChess();
+            
         }
 
-        public void SetUpStats(int setHealth, int setDamege, string setName, CharacterType setCharacterType, CombatType setCombatType)
+        public void SetUpStats(int setHealth, int setDamege, string setName, CharacterType setCharacterType, CombatType setCombatType, int setPower)
         {
             health = setHealth;
             damege = setDamege;
             charName = setName;
             characterType = setCharacterType;
             combatType = setCombatType;
+            power = setPower;
             if (characterType == CharacterType.Hero)
             {
                 healthBar.SetColor(false);
@@ -94,6 +120,8 @@ namespace MergeHero
             model.transform.SetParent(modelParent);
             model.transform.localPosition = Vector3.zero;
             model.transform.localEulerAngles = Vector3.one;
+
+            modelParent.localScale = Vector3.one *(1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f);
         }
 
         public void SetBoardPos(int xPos, int yPos)
@@ -137,6 +165,7 @@ namespace MergeHero
                     MatchManager.Instance.IsMonsterAllDie();
                     break;
             }
+            modelParent.gameObject.SetActive(false);
             //charController.characterMovement.GetAgent().enabled = false;
         }
     }

@@ -33,6 +33,9 @@ namespace MergeHero
 
         private Touch initialTouch = new Touch();
         private bool hasSwiped = false;
+
+        [SerializeField] private GameObject gridPlan;
+
         public static System.Action OnMatchEnd;
 
         private void Start()
@@ -57,6 +60,21 @@ namespace MergeHero
             SpawnMonster((int)(totalPlayerpower * 1.3f));
         }
 
+        private void OnEnable()
+        {
+            EvenManager.OnGameStarted += TurnOffGirdPlan;
+        }
+
+        private void OnDisable()
+        {
+            EvenManager.OnGameStarted -= TurnOffGirdPlan;
+        }
+
+        private void TurnOffGirdPlan()
+        {
+            gridPlan.SetActive(false);
+        }
+
         private void Update()
         {
             if (GameManager.Instance.isStarted)
@@ -79,7 +97,7 @@ namespace MergeHero
                         RaycastHit hit;
                         if (!Physics.Raycast(ray, out hit, Mathf.Infinity, character))
                             return;
-                        for (int i = 0; i < 7; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             for (int j = 0; j < 5; j++)
                             {
@@ -105,7 +123,7 @@ namespace MergeHero
                         if (!Physics.Raycast(ray, out hit, Mathf.Infinity, character))
                             return;
                         chooseHero.transform.position = hit.point + Vector3.up;
-                        for (int i = 0; i < 7; i++)
+                        for (int i = 0; i < 3; i++)
                         {
                             for (int j = 0; j < 5; j++)
                             {
@@ -136,7 +154,7 @@ namespace MergeHero
                             CharacterStats curHeroInfor = curHero.GetComponent<CharacterStats>();
                             if (curHeroInfor.characterType == charInfor.characterType && curHeroInfor.combatType == charInfor.combatType && curHeroInfor.charName == charInfor.charName && curHero != chooseHero)
                             {
-                                string nextLvName = ChessCreater.Instance.GetNameOfNextLecel(curHeroInfor.charName);
+                                string nextLvName = ChessCreater.Instance.GetNameOfNextLevel(curHeroInfor.charName);
                                 if (nextLvName == null)
                                 {
                                     curHeroInfor.SetBoardPos(curHeroInfor.xBoard, curHeroInfor.yBoard);
@@ -166,6 +184,7 @@ namespace MergeHero
                         chooseHero = null;
                         initialTouch = new Touch();
                         hasSwiped = false;
+                        GameManager.Instance.SavePlayerChess();
                     }
                 }
 
@@ -255,14 +274,14 @@ namespace MergeHero
         {
             List<int> powerLists = new List<int>();
             int[] heroPowers = { 100, 200, 400/*, 800, 1600*/ };
-            int maxCell = 8;
+            int maxCell = 15;
             int minCell = playerPower / heroPowers[heroPowers.Length - 1] + 1;
             if(minCell > maxCell)
             {
                 minCell = maxCell;
             }
 
-            int randomCell = Random.Range(minCell, maxCell);
+            int randomCell = Random.Range(minCell, maxCell + 1);
 
             while(playerPower > 0 && randomCell > 0)
             {
@@ -372,6 +391,161 @@ namespace MergeHero
                 }
             }
             go:;
+        }
+
+        public CharacterStats CheckHeroMeleeLevelMin()
+        {
+            CharacterStats minLevelHero = null;
+            int minPower = 99999;
+            for (int j = 2; j >= 0; j--)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (heros[i, j] == null)
+                        continue;
+                    
+                    CharacterStats characterStats = heros[i, j].GetComponent<CharacterStats>();
+                    if(characterStats.characterType != CharacterType.Hero || characterStats.combatType != CombatType.Melee)
+                        continue;
+                    if (characterStats.power < minPower)
+                    {
+                        minLevelHero = characterStats;
+                        minPower = characterStats.power;
+                    }
+                }
+            }
+
+            return minLevelHero;
+        }
+
+        public CharacterStats CheckHeroRangeLevelMin()
+        {
+            CharacterStats minLevelHero = null;
+            int minPower = 99999;
+            for (int j = 0; j <= 2; j++)
+            {
+                for (int i = 4; i >= 0; i--)
+                {
+                    if (heros[i, j] == null)
+                        continue;
+
+                    CharacterStats characterStats = heros[i, j].GetComponent<CharacterStats>();
+                    if (characterStats.characterType != CharacterType.Hero || characterStats.combatType != CombatType.Range)
+                        continue;
+                    if (characterStats.power < minPower)
+                    {
+                        minLevelHero = characterStats;
+                        minPower = characterStats.power;
+                    }
+                }
+            }
+
+            return minLevelHero;
+        }
+        
+        public void SellOrImprovedWarrior()
+        {
+            Vector2 cellEmpty = new Vector2();
+            bool haveCellEmpty = false;
+            for (int j = 2; j >= 0; j--)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (heros[i, j] == null)
+                    {
+                        //CreateChar(GameConfigs.CAPTAIN_NAME, i, j);
+                        cellEmpty.x = i;
+                        cellEmpty.y = j;
+                        haveCellEmpty = true;
+                        goto go;
+                    }
+                }
+            }
+            go:;
+
+            if (haveCellEmpty)
+            {
+                CreateChar(GameConfigs.CAPTAIN_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
+            }
+            else
+            {
+                CharacterStats characterStats = CheckHeroMeleeLevelMin();
+                if (characterStats == null)
+                    return;
+                string nameOfNextLevel = ChessCreater.Instance.GetNameOfNextLevel(characterStats.charName);
+                if (nameOfNextLevel == null)
+                    return;
+                CreateChar(nameOfNextLevel, characterStats.xBoard, characterStats.yBoard);
+                StartCoroutine(characterStats.DestroyMe());
+            }
+        }
+
+        public void SellOrImprovedArcher()
+        {
+            Vector2 cellEmpty = new Vector2();
+            bool haveCellEmpty = false;
+            for (int j = 0; j <= 2; j++)
+            {
+                for (int i = 4; i >= 0; i--)
+                {
+                    if (heros[i, j] == null)
+                    {
+                        cellEmpty.x = i;
+                        cellEmpty.y = j;
+                        haveCellEmpty = true;
+                        goto go;
+                    }
+                }
+            }
+        go:;
+            if (haveCellEmpty)
+            {
+                CreateChar(GameConfigs.SPIDERMAN_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
+            }
+            else
+            {
+                CharacterStats characterStats = CheckHeroRangeLevelMin();
+                if (characterStats == null)
+                    return;
+                string nameOfNextLevel = ChessCreater.Instance.GetNameOfNextLevel(characterStats.charName);
+                if (nameOfNextLevel == null)
+                    return;
+                CreateChar(nameOfNextLevel, characterStats.xBoard, characterStats.yBoard);
+                StartCoroutine(characterStats.DestroyMe());
+            }
+        }
+
+        public bool CheckHaveCellEmpty()
+        {
+            bool haveCellEmpty = false;
+            for (int j = 0; j <= 2; j++)
+            {
+                for (int i = 4; i >= 0; i--)
+                {
+                    if (heros[i, j] == null)
+                    {
+                        haveCellEmpty = true;
+                        goto go;
+                    }  
+                }
+            }
+        go:;
+            return haveCellEmpty;
+        }
+
+        public int NumHeroOfType(CombatType combatType)
+        {
+            int num = 0;
+            foreach(CharacterStats characterStats in herosInMatch)
+            {
+                if(characterStats.combatType == combatType)
+                {
+                    int lv = ChessCreater.Instance.GetLevel(characterStats.charName);
+                    num += (int)Mathf.Pow(2, lv - 1);
+                }
+            }
+
+            return num;
         }
 
     }
