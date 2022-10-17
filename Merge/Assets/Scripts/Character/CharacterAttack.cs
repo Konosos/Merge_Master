@@ -55,9 +55,7 @@ namespace MergeHero
                         charController.characterAnimation.Attack();
                         attackCountdown = 1f / attackRate;
                     }
-
-                    
-                    
+ 
                 }
                 else
                 {

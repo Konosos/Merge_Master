@@ -9,6 +9,7 @@ public class UserData
     public string playerName;
     public int playerRanking;
     public bool firstInGame;
+    public string[] purchasedHero;
 
     //---Chess_Data---
     public string[] chessNames;
@@ -32,6 +33,7 @@ public class UserData
         playerMoney = 0;
         playerRanking = 15015;
         firstInGame = true;
+        purchasedHero = new string[2] { GameConfigs.SPIDERMAN_NAME, GameConfigs.CAPTAIN_NAME };
 
         numGameWin = 0;
         gameIndex = 1;

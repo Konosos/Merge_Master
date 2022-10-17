@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 namespace MergeHero
 {   
     [SelectionBase]
     public class CharacterStats : MonoBehaviour , ITakeDamege
     {
-        [SerializeField] private CharController charController;
+        public CharController charController;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private Collider coll;
 
@@ -81,6 +83,16 @@ namespace MergeHero
                 }
 
             }
+            string[] purchasedHero = GameManager.Instance.UserData.purchasedHero;
+            if (!purchasedHero.IsContain(charName))
+            {
+                if (EvenManager.OnPurchasedNewHero != null)
+                {
+                    GameManager.Instance.UserData.purchasedHero = TeraJet.GameUtils.AddItemToArray(GameManager.Instance.UserData.purchasedHero, charName);
+                    TeraJet.GameUtils.SavePlayerData(GameManager.Instance.UserData);
+                    EvenManager.OnPurchasedNewHero.Invoke(charName);
+                }
+            }
         }
 
         public IEnumerator DestroyMe()
@@ -120,8 +132,9 @@ namespace MergeHero
             model.transform.SetParent(modelParent);
             model.transform.localPosition = Vector3.zero;
             model.transform.localEulerAngles = Vector3.one;
-
-            modelParent.localScale = Vector3.one *(1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f);
+            modelParent.localScale = Vector3.one * 0.1f;
+            modelParent.DOScale(Vector3.one * (1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f), 0.5f);
+            //modelParent.localScale = Vector3.one * (1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f);
         }
 
         public void SetBoardPos(int xPos, int yPos)
@@ -141,6 +154,12 @@ namespace MergeHero
                 return;
             health -= damege;
             healthBar.SetHealth(health);
+            if(characterType == CharacterType.Monster)
+            {
+                GameManager.Instance.AddCoin(damege);
+                AddMoneyTxt addMoneyTxt = ObjectPoolerManager.Instance.GetObject("MoneyTxt").GetComponent<AddMoneyTxt>();
+                addMoneyTxt.SetUpAndFly(this.transform.position + Vector3.up * 4, damege);
+            }
             if (health <= 0)
             {
                 isDeath = true;
@@ -151,7 +170,7 @@ namespace MergeHero
         private void Death()
         {
             
-            charController.characterAnimation.Victory();
+            //charController.characterAnimation.Victory();
             
             rb.isKinematic = true;
             coll.isTrigger = true;
@@ -165,7 +184,8 @@ namespace MergeHero
                     MatchManager.Instance.IsMonsterAllDie();
                     break;
             }
-            modelParent.gameObject.SetActive(false);
+            charController.characterAnimation.Die();
+            healthBar.gameObject.SetActive(false);
             //charController.characterMovement.GetAgent().enabled = false;
         }
     }

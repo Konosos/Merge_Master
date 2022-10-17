@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
-  m_Name: Batman
+  m_Name: DoctorStranger
   m_EditorClassIdentifier: 
-  health: 59
-  damege: 20
-  power: 200
-  nameChar: Batman
+  health: 1500
+  damege: 150
+  power: 1600
+  nameChar: DoctorStranger
   attackRate: 1
   attackRange: 1000
-  prefab: {fileID: 1467581003608687075, guid: 71eabdbf3120c284f8a9963d6755fe70, type: 3}
+  prefab: {fileID: 7703340717823970716, guid: 0b3557c1da60d654b84b3f42f2953615, type: 3}
   bullet: {fileID: 5481640524403763043, guid: 9391f7d6f8921f345b778f1e113c9fac, type: 3}
+  avatar: {fileID: 0}
   characterType: 0
   combatType: 1
   heroMeleeType: 0
-  heroRangeType: 2
+  heroRangeType: 5
   monsterMeleeType: 0
   monsterRangeType: 0
   rangeAttackType: 2

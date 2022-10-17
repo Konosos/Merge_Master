@@ -10,7 +10,7 @@ namespace MergeHero
         {
             //base.Attack(target);
             CharacterStats characterStats = target.GetComponent<CharacterStats>();
-            characterStats.TakeDamege(50);
+            characterStats.TakeDamege(characterAttack.charController.characterStats.GetDamge());
 
         }
 

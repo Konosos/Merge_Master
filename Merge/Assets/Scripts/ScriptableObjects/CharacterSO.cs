@@ -13,6 +13,7 @@ public class CharacterSO : ScriptableObject
     public float attackRange;
     public GameObject prefab;
     public GameObject bullet;
+    public Sprite avatar;
     public CharacterType characterType;
     public CombatType combatType;
     public HeroMeleeType heroMeleeType;
@@ -38,10 +39,10 @@ public class CharacterSO : ScriptableObject
 public enum CharacterType { Hero, Monster }
 public enum CombatType { Melee, Range}
 public enum HeroMeleeType { None, Captain, Thor, Hulk }
-public enum HeroRangeType { None, SpiderMan, Batman, GreenArrow }
+public enum HeroRangeType { None, SpiderMan, GreenArrow, TheFlash, IronMan, DoctorStranger }
 public enum MonsterMeleeType { None, Red, Whitty, Blue, Kissy, Huggy }
 public enum MonsterRangeType { None, Orange, Green, LongLegs }
 public enum RangeAttackType { None, SpiderMan, Batman, GreenArrow, IronMan }
-public enum AnimStates { Idle, Run, Victory, Lose, Attack}
+public enum AnimStates { Idle, Run, Victory, Lose, Attack, Falling}
 
 

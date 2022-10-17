@@ -18,6 +18,7 @@ namespace MergeHero
 
         public GameStartUIHandler gameStartUIHandler;
         public EndGameUIHandler endGameUIHandler;
+        public PreviewNewHeroUIHandler previewNewHeroUIHandler;
 
         [SerializeField] private Text moneyTxt;
 
@@ -35,12 +36,14 @@ namespace MergeHero
         {
             MatchManager.OnMatchEnd += EndGameUiOpen;
             GameManager.OnMoneyChange += OnMoneyChange;
+            EvenManager.OnPurchasedNewHero += PreviewHeroUiOpen;
         }
 
         private void OnDisable()
         {
             MatchManager.OnMatchEnd -= EndGameUiOpen;
             GameManager.OnMoneyChange -= OnMoneyChange;
+            EvenManager.OnPurchasedNewHero -= PreviewHeroUiOpen;
         }
 
         public void GameStartUiClose()
@@ -52,5 +55,11 @@ namespace MergeHero
         {
             endGameUIHandler.TurnOn();
         }
+
+        public void PreviewHeroUiOpen(string charName)
+        {
+            previewNewHeroUIHandler.TurnOn(charName);
+        }
+
     }
 }

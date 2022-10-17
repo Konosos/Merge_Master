@@ -54,10 +54,9 @@ namespace MergeHero
                 GameObject hero = CreateChar(userData.chessNames[i], userData.chess_XBoard[i], userData.chess_YBoard[i]);
                 totalPlayerpower += ChessCreater.Instance.NameToPower(userData.chessNames[i]);
 
-                //herosInMatch.Add(hero.GetComponent<CharacterStats>());
             }
 
-            SpawnMonster((int)(totalPlayerpower * 1.3f));
+            SpawnMonster((int)(totalPlayerpower * 1.5f));
         }
 
         private void OnEnable()
@@ -109,6 +108,7 @@ namespace MergeHero
                                 {
                                     chooseHero = heros[j, i];
                                     chooseHero.GetComponent<CapsuleCollider>().isTrigger = true;
+                                    chooseHero.GetComponent<CharacterAnimation>().Falling();
                                 }
                             }
                         }
@@ -142,11 +142,13 @@ namespace MergeHero
                         meshCell.transform.position = new Vector3(0, -1f, 0);
                         chooseHero.GetComponent<CapsuleCollider>().isTrigger = false;
                         CharacterStats charInfor = chooseHero.GetComponent<CharacterStats>();
+
                         if (heros[curXBoard, curYBoard] == null)
                         {
                             SetPosEmty(charInfor.xBoard, charInfor.yBoard);
                             charInfor.SetBoardPos(curXBoard, curYBoard);
                             SetObjToBoard(chooseHero);
+                            charInfor.charController.characterAnimation.Idle();
                         }
                         else
                         {
@@ -159,17 +161,15 @@ namespace MergeHero
                                 {
                                     curHeroInfor.SetBoardPos(curHeroInfor.xBoard, curHeroInfor.yBoard);
                                     charInfor.SetBoardPos(charInfor.xBoard, charInfor.yBoard);
-
+                                    charInfor.charController.characterAnimation.Idle();
                                 }
                                 else
                                 {
                                     CreateChar(nextLvName, curHeroInfor.xBoard, curHeroInfor.yBoard);
                                     SetPosEmty(charInfor.xBoard, charInfor.yBoard);
+
                                     StartCoroutine(charInfor.DestroyMe());
                                     StartCoroutine(curHeroInfor.DestroyMe());
-                                    //Destroy(chooseHero);
-                                    //Destroy(curHero);
-                                    
                                 }
 
                             }
@@ -177,6 +177,7 @@ namespace MergeHero
                             {
                                 curHeroInfor.SetBoardPos(charInfor.xBoard, charInfor.yBoard);
                                 charInfor.SetBoardPos(curXBoard, curYBoard);
+                                charInfor.charController.characterAnimation.Idle();
                                 SetObjToBoard(chooseHero);
                                 SetObjToBoard(curHero);
                             }
@@ -191,6 +192,25 @@ namespace MergeHero
             }
             #endregion
         }
+
+        private Vector2 PositionInCell(Vector3 pos)
+        {
+            Vector2 cell = new Vector2();
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Vector3 boardPos = new Vector3(-8f + 4 * j, 0, -12f + 4 * i);
+                    Vector3 dir = pos - boardPos;
+                    if (dir.magnitude > 2f)
+                        continue;
+                    cell = new Vector2(i, j);
+                    return cell;
+                }
+            }
+
+            return cell;
+        } 
 
         private GameObject CreateChar(string charName, int xBoard, int yBoard)
         {

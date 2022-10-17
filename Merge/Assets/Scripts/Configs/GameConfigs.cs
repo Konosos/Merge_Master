@@ -14,6 +14,10 @@ public static class GameConfigs
     public static readonly string KISSY_NAME = "Kissy";
     public static readonly string LONGLEGS_NAME = "LongLegs";
     public static readonly string WHITTY_NAME = "Whitty";
+    public static readonly string RED_NAME = "Red";
+    public static readonly string BLUE_NAME = "Blue";
+    public static readonly string ORANGE_NAME = "Orange";
+    public static readonly string GREEN_NAME = "Green";
 }
 
 

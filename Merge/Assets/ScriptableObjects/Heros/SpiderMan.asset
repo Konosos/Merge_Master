@@ -18,8 +18,9 @@ MonoBehaviour:
   nameChar: SpiderMan
   attackRate: 1
   attackRange: 1000
-  prefab: {fileID: 7831645114264250080, guid: 1098c43302928b74f8120cc08d6ff643, type: 3}
+  prefab: {fileID: 2608885540299304882, guid: a80bea1b3b601cd42af8b81feac537a3, type: 3}
   bullet: {fileID: 3919435613400015856, guid: 3bd6d11d8b9d90b42a3c022961306b40, type: 3}
+  avatar: {fileID: 21300000, guid: a2ac865e8b8a3c64ba71a53a0b439805, type: 3}
   characterType: 0
   combatType: 1
   heroMeleeType: 0

@@ -31,7 +31,7 @@ namespace MergeHero
             GameObject charClone = Instantiate(charPrefab, pos, Quaternion.identity);
             CharacterStats charStats = charClone.GetComponent<CharacterStats>();
 
-            charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.name, characterSO.characterType, characterSO.combatType, characterSO.power);
+            charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.nameChar, characterSO.characterType, characterSO.combatType, characterSO.power);
             charStats.SetBoardPos(xBoard, yBoard);
 
             GameObject model = Instantiate(characterSO.prefab, Vector3.zero, Quaternion.identity);
@@ -106,8 +106,12 @@ namespace MergeHero
                 }
             }
             if (nextLevelSO == null)
+            {
+                LogUtils.Log("No ");
                 return null;
-            return nextLevelSO.name;
+            }
+                
+            return nextLevelSO.nameChar;
         }
 
         public int GetLevel(string charName)

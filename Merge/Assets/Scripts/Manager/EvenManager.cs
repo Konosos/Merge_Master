@@ -17,6 +17,7 @@ namespace MergeHero
         public static System.Action OnHeroWarriorSpawn;
         public static System.Action OnHeroArcherSpawn;
         public static System.Action OnGameStarted;
+        public static System.Action<string> OnPurchasedNewHero;
 
     }
 }

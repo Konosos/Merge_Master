@@ -41,5 +41,17 @@ namespace MergeHero
             state = AnimStates.Lose;
             animator.SetInteger("State", (int)state);
         }
+
+        public void Falling()
+        {
+            state = AnimStates.Falling;
+            animator.SetInteger("State", (int)state);
+        }
+
+        public void Die()
+        {
+
+            animator.SetTrigger("Die");
+        }
     }
 }

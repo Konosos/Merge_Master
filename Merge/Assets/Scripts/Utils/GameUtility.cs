@@ -8,11 +8,15 @@ namespace MergeHero
     {
         public static string SimpleMoneyText(int _money)
         {
+            int million = _money / 10000000;
+            if (million > 0)
+                return (_money / 1000000).ToString() + "M";
             int thousand = _money / 10000;
             if (thousand > 0)
                 return (_money / 1000).ToString() + "K";
             return _money.ToString();
         }
+
         public static string RandomString(int lenght)
         {
             string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
