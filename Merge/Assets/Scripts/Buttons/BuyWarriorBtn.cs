@@ -15,12 +15,12 @@ namespace MergeHero
 
         private void OnEnable()
         {
-            EvenManager.OnHeroWarriorSpawn += UpdateBtn;
+            EvenManager.OnHeroSpawn += UpdateBtn;
         }
 
         private void OnDisable()
         {
-            EvenManager.OnHeroWarriorSpawn -= UpdateBtn;
+            EvenManager.OnHeroSpawn -= UpdateBtn;
         }
 
         private void UpdateBtn()
@@ -49,6 +49,7 @@ namespace MergeHero
             GameManager.Instance.AddCoin(-price);
             //MatchManager.Instance.SellWarrior();
             MatchManager.Instance.SellOrImprovedWarrior();
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
     }
 }

@@ -41,12 +41,15 @@ namespace MergeHero
         public void NewGame()
         {
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
 
         private IEnumerator OnTurnOn()
         {
             yield return null;
             log.text = GameManager.Instance.playerIsWinner ? "Hero is winner" : "Monster is winner";
+            string endGameSound = GameManager.Instance.playerIsWinner ? GameConfigs.VICTORY_KEY : GameConfigs.LOSE_KEY;
+            SoundManager.Instance.PlaySFXByPublicSource(endGameSound, 1f);
         }
     }
 }

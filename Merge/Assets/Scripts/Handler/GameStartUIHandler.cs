@@ -38,7 +38,9 @@ namespace MergeHero
         {
             GameManager.Instance.MatchStarted();
             GamePlayUIController.Instance.GameStartUiClose();
-            if(EvenManager.OnGameStarted != null)
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.FIGHT_KEY, 0.7f);
+
+            if (EvenManager.OnGameStarted != null)
             {
                 EvenManager.OnGameStarted.Invoke();
             }
@@ -47,6 +49,7 @@ namespace MergeHero
         public void AddMoneyBtn()
         {
             GameManager.Instance.AddCoin(1000);
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
 
         

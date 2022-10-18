@@ -52,11 +52,15 @@ namespace MergeHero
         {
             GameManager.Instance.AddCoin(5000);
             TurnOff();
+
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
 
         public void ExitBtn()
         {
             TurnOff();
+
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
     }
 }

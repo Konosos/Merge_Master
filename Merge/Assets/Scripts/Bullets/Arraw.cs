@@ -7,12 +7,12 @@ namespace MergeHero
 {
     public class Arraw : MonoBehaviour
     {
-        private Vector3 dir;
-        private Vector3 targetPos;
-        private int dame;
-        private CharacterType characterType;
-        [SerializeField] private float speed;
-        [SerializeField] private Transform parent;
+        protected Vector3 dir;
+        protected Vector3 targetPos;
+        protected int dame;
+        protected CharacterType characterType;
+        [SerializeField] protected float speed;
+        [SerializeField] protected Transform parent;
         // Start is called before the first frame update
         void Start()
         {
@@ -27,7 +27,7 @@ namespace MergeHero
             //parent.Translate(dir * Time.deltaTime * speed);
             transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
         }
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             CharacterStats charInfor = other.GetComponent<CharacterStats>();
             if (characterType == charInfor.characterType)
@@ -45,7 +45,7 @@ namespace MergeHero
             characterType = setCharType;
             targetPos = setTarget;
         }
-        void DestroyMySelf()
+        protected void DestroyMySelf()
         {
             Destroy(gameObject);
         }

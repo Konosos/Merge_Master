@@ -11,6 +11,24 @@ namespace MergeHero
         private AnimStates state;
         public Animator animator;
 
+        private void OnEnable()
+        {
+            MatchManager.OnMatchEnd += PlayAnimVictory;
+        }
+
+        private void OnDisable()
+        {
+            MatchManager.OnMatchEnd -= PlayAnimVictory;
+        }
+
+        private void PlayAnimVictory()
+        {
+            if (!charController.characterStats.isDeath)
+            {
+                Victory();
+            }
+        }
+
         public void Idle()
         {
             state = AnimStates.Idle;

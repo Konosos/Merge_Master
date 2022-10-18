@@ -67,21 +67,9 @@ namespace MergeHero
         {
             yield return new WaitForEndOfFrame();
             GameManager.Instance.SavePlayerChess();
-            if (combatType == CombatType.Melee)
+            if (EvenManager.OnHeroSpawn != null)
             {
-                if (EvenManager.OnHeroWarriorSpawn != null)
-                {
-                    EvenManager.OnHeroWarriorSpawn.Invoke();
-                }
-
-            }
-            else
-            {
-                if (EvenManager.OnHeroArcherSpawn != null)
-                {
-                    EvenManager.OnHeroArcherSpawn.Invoke();
-                }
-
+                EvenManager.OnHeroSpawn.Invoke();
             }
             string[] purchasedHero = GameManager.Instance.UserData.purchasedHero;
             if (!purchasedHero.IsContain(charName))
@@ -154,7 +142,8 @@ namespace MergeHero
                 return;
             health -= damege;
             healthBar.SetHealth(health);
-            if(characterType == CharacterType.Monster)
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.HURT_KEY, 0.8f);
+            if (characterType == CharacterType.Monster)
             {
                 GameManager.Instance.AddCoin(damege);
                 AddMoneyTxt addMoneyTxt = ObjectPoolerManager.Instance.GetObject("MoneyTxt").GetComponent<AddMoneyTxt>();
@@ -179,9 +168,12 @@ namespace MergeHero
             {
                 case CharacterType.Hero:
                     MatchManager.Instance.IsHeroAllDie();
+                    SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.HERO_DEATH_KEY, 0.7f);
                     break;
                 case CharacterType.Monster:
                     MatchManager.Instance.IsMonsterAllDie();
+
+                    SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.MONSTERDEATH_KEY, 0.5f);
                     break;
             }
             charController.characterAnimation.Die();

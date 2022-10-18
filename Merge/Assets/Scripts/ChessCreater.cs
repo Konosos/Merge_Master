@@ -141,5 +141,16 @@ namespace MergeHero
             LogUtils.Log("Bug in GetLevel");
             return 0;
         }
+
+        public string NameToSoundKey(string charName)
+        {
+            switch (charName)
+            {
+                case "HaileyQuin":
+                    return GameConfigs.FEMALE_FALLING_KEY;
+            }
+
+            return GameConfigs.MALE_FALLING_KEY;
+        }
     }
 }

@@ -15,12 +15,12 @@ namespace MergeHero
 
         private void OnEnable()
         {
-            EvenManager.OnHeroArcherSpawn += UpdateBtn;
+            EvenManager.OnHeroSpawn += UpdateBtn;
         }
 
         private void OnDisable()
         {
-            EvenManager.OnHeroArcherSpawn -= UpdateBtn;
+            EvenManager.OnHeroSpawn -= UpdateBtn;
         }
 
         private void UpdateBtn()
@@ -48,6 +48,7 @@ namespace MergeHero
             GameManager.Instance.AddCoin(-price);
             //MatchManager.Instance.SellArcher();
             MatchManager.Instance.SellOrImprovedArcher();
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
         }
     }
 }

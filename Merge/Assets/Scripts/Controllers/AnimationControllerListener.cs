@@ -16,6 +16,7 @@ namespace MergeHero
             if (characterAttack != null)
             {
                 characterAttack.attackable.Attack(characterAttack, characterAttack.enemy);
+                //LogUtils.Log(characterAttack.charController.characterStats.charName);
             }
         }
     }

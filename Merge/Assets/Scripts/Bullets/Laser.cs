@@ -6,17 +6,18 @@ namespace MergeHero
 {
     public class Laser : MonoBehaviour
     {
-        private Vector3 dir;
-        private int dame;
-        private CharacterType characterType;
-        [SerializeField] private float speed;
-        [SerializeField] private LineRenderer lineRenderer;
+        protected Vector3 dir;
+        protected int dame;
+        protected CharacterType characterType;
+        [SerializeField] protected float speed;
+        [SerializeField] protected LineRenderer lineRenderer;
         // Start is called before the first frame update
         void Start()
         {
             lineRenderer.SetPosition(1, transform.position);
             lineRenderer.SetPosition(0, transform.position);
             Invoke("DestroyMySelf", 2f);
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.LASER_KEY, 0.4f);
         }
 
         // Update is called once per frame
@@ -24,14 +25,14 @@ namespace MergeHero
         {
             transform.Translate(dir * Time.deltaTime * speed);
             Vector3 laserLength = lineRenderer.GetPosition(0) - lineRenderer.GetPosition(1);
-            if (laserLength.magnitude >= 40)
+            if (laserLength.magnitude >= 30)
             {
-                Vector3 endPos = transform.position - 40 * dir;
+                Vector3 endPos = transform.position - 30 * dir;
                 lineRenderer.SetPosition(1, endPos);
             }
             lineRenderer.SetPosition(0, transform.position);
         }
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             CharacterStats charInfor = other.GetComponent<CharacterStats>();
             if (characterType == charInfor.characterType)
@@ -48,7 +49,7 @@ namespace MergeHero
             dame = setDame;
             characterType = setCharType;
         }
-        void DestroyMySelf()
+        protected void DestroyMySelf()
         {
             Destroy(gameObject);
         }

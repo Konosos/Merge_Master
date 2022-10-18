@@ -56,7 +56,7 @@ namespace MergeHero
 
             }
 
-            SpawnMonster((int)(totalPlayerpower * 1.5f));
+            SpawnMonster((int)(totalPlayerpower * 1.3f));
         }
 
         private void OnEnable()
@@ -85,7 +85,7 @@ namespace MergeHero
                 return;
             }
             #region Put and Merge
-            if (Input.touchCount > 0)
+            if (Input.touchCount == 1)
             {
                 foreach (Touch t in Input.touches)
                 {
@@ -109,6 +109,8 @@ namespace MergeHero
                                     chooseHero = heros[j, i];
                                     chooseHero.GetComponent<CapsuleCollider>().isTrigger = true;
                                     chooseHero.GetComponent<CharacterAnimation>().Falling();
+                                    //StartCoroutine(SoundManager.Instance.PlayLoopSound(GameConfigs.MALE_FALLING_KEY, 0.7f, 0.8f));
+                                    SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.PUSH_KEY, 0.7f);
                                 }
                             }
                         }
@@ -186,6 +188,8 @@ namespace MergeHero
                         initialTouch = new Touch();
                         hasSwiped = false;
                         GameManager.Instance.SavePlayerChess();
+                        //SoundManager.Instance.StopLoopSound();
+                        SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.Put_KEY, 0.7f);
                     }
                 }
 
