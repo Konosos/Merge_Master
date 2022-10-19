@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using System.Threading.Tasks;
+
 
 public class SplashController : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class SplashController : MonoBehaviour
     void Start()
     {
         DOTween.SetTweensCapacity(500, 50);
-        //LevelLoadEnd()
+        LevelLoadEnd();
         StartCoroutine(LoadScene());
     }
 

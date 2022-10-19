@@ -42,7 +42,11 @@ public static class GameConfigs
     public static readonly string LOSE_KEY = "Lose";
     public static readonly string HURT_KEY = "Hurt";
     public static readonly string PUSH_KEY = "Push";
-    public static readonly string Put_KEY = "Put";
+    public static readonly string PUT_KEY = "Put";
+    public static readonly string MERGE_KEY = "Merge";
+    public static readonly string BUY_NEW_KEY = "BuyNewHero";
+    public static readonly string BUY_BTN_KEY = "BuyBtn";
+    public static readonly string VECTOR_RUN_KEY = "VectorRun";
 
 }
 

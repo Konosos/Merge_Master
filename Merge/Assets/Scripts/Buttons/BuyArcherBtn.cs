@@ -48,7 +48,8 @@ namespace MergeHero
             GameManager.Instance.AddCoin(-price);
             //MatchManager.Instance.SellArcher();
             MatchManager.Instance.SellOrImprovedArcher();
-            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.BUY_NEW_KEY, 0.7f);
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.BUY_BTN_KEY, 0.7f);
         }
     }
 }

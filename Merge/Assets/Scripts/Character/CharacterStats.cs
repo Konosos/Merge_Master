@@ -147,7 +147,7 @@ namespace MergeHero
             {
                 GameManager.Instance.AddCoin(damege);
                 AddMoneyTxt addMoneyTxt = ObjectPoolerManager.Instance.GetObject("MoneyTxt").GetComponent<AddMoneyTxt>();
-                addMoneyTxt.SetUpAndFly(this.transform.position + Vector3.up * 4, damege);
+                addMoneyTxt.SetUpAndFly(this.transform.position + Vector3.up * 4f, damege);
             }
             if (health <= 0)
             {

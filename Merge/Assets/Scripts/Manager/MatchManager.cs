@@ -169,7 +169,7 @@ namespace MergeHero
                                 {
                                     CreateChar(nextLvName, curHeroInfor.xBoard, curHeroInfor.yBoard);
                                     SetPosEmty(charInfor.xBoard, charInfor.yBoard);
-
+                                    SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.MERGE_KEY, 1f);
                                     StartCoroutine(charInfor.DestroyMe());
                                     StartCoroutine(curHeroInfor.DestroyMe());
                                 }
@@ -189,7 +189,7 @@ namespace MergeHero
                         hasSwiped = false;
                         GameManager.Instance.SavePlayerChess();
                         //SoundManager.Instance.StopLoopSound();
-                        SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.Put_KEY, 0.7f);
+                        SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.PUT_KEY, 0.7f);
                     }
                 }
 

@@ -225,7 +225,7 @@ namespace MergeHero
         #endregion
         public void ResetData()
         {
-
+            isStarted = false;
             matchEnd = false;
             playerIsWinner = false;
             gameOver = false;

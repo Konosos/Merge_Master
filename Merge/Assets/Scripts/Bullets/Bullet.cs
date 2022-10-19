@@ -6,10 +6,10 @@ namespace MergeHero
 {
     public class Bullet : MonoBehaviour
     {
-        private Vector3 dir;
-        private int dame;
-        private CharacterType characterType;
-        [SerializeField] private float speed;
+        protected Vector3 dir;
+        protected int dame;
+        protected CharacterType characterType;
+        [SerializeField] protected float speed;
         // Start is called before the first frame update
         void Start()
         {
@@ -18,11 +18,11 @@ namespace MergeHero
         }
 
         // Update is called once per frame
-        void Update()
+        protected void Update()
         {
             transform.Translate(dir * Time.deltaTime * speed);
         }
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             CharacterStats charInfor = other.GetComponent<CharacterStats>();
             if (characterType == charInfor.characterType)
@@ -39,7 +39,7 @@ namespace MergeHero
             dame = setDame;
             characterType = setCharType;
         }
-        void DestroyMySelf()
+        protected void DestroyMySelf()
         {
             Destroy(gameObject);
         }

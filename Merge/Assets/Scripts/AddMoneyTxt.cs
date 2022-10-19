@@ -8,16 +8,32 @@ namespace MergeHero
 {
     public class AddMoneyTxt : MonoBehaviour
     {
-        public TMP_Text moneyTxt;
+        [SerializeField] private TMP_Text moneyTxt;
+        [SerializeField] private CanvasGroup canvasGroup;
+
+        private void Start()
+        {
+            
+        }
 
         public void SetUpAndFly(Vector3 pos, int numCoin)
         {
 
             moneyTxt.text = "+" + numCoin.ToString();
+
+            canvasGroup.alpha = 1;
+            RectTransform txtRect = moneyTxt.rectTransform;
+            txtRect.DOScale(Vector3.one, 1.2f).SetEase(Ease.OutSine);
             transform.position = pos;
-            transform.DOMoveY(pos.y + 5, 1.5f).OnComplete(() =>
+            transform.DOMoveY(pos.y + 3, 1.2f).SetEase(Ease.OutSine).OnComplete(() =>
             {
-                this.gameObject.SetActive(false);
+                canvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutQuint);
+                transform.DOMoveY(transform.position.y + 2, 0.5f).SetEase(Ease.OutQuint).OnComplete(() =>
+                {
+                    
+                    this.gameObject.SetActive(false);
+                });
+
             });
         }
     }

@@ -11,6 +11,21 @@ namespace MergeHero
 
         [SerializeField] private NavMeshAgent agent;
 
+
+        private void OnEnable()
+        {
+            EvenManager.OnGameStarted += TurnOnNavMesh;
+        }
+
+        private void OnDisable()
+        {
+            EvenManager.OnGameStarted -= TurnOnNavMesh;
+        }
+
+        private void TurnOnNavMesh()
+        {
+            agent.enabled = true;
+        }
         public void MoveToPosition(Vector3 target)
         {
             if (agent == null)

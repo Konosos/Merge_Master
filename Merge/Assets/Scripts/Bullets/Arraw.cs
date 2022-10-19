@@ -21,7 +21,7 @@ namespace MergeHero
         }
 
         // Update is called once per frame
-        void Update()
+        protected void Update()
         {
             
             //parent.Translate(dir * Time.deltaTime * speed);
