@@ -28,7 +28,7 @@ namespace MergeHero
             CharacterStats characterStats = MatchManager.Instance.CheckHeroMeleeLevelMin();
             if (MatchManager.Instance.CheckHaveCellEmpty() || characterStats == null)
             {
-                heroName = GameConfigs.CAPTAIN_NAME;
+                heroName = GameConfigs.BLACK_PANTHER_NAME;
             }
             else
             {

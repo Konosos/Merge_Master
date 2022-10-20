@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: Thor
   m_EditorClassIdentifier: 
-  health: 119
-  damege: 12
-  power: 200
+  health: 732
+  damege: 58
+  power: 800
   nameChar: Thor
   attackRate: 1
   attackRange: 2.7
-  prefab: {fileID: 7335502487425378347, guid: 940f82bc7b8b1df40bbd3133a8675bb2, type: 3}
+  prefab: {fileID: 2730974238039372710, guid: 85afc796c4d55be49881181a1fc02de8, type: 3}
   bullet: {fileID: 0}
-  avatar: {fileID: 21300000, guid: 32e078e60825869409ab32cd69d8e3df, type: 3}
+  avatar: {fileID: 0}
   characterType: 0
   combatType: 0
-  heroMeleeType: 2
+  heroMeleeType: 4
   heroRangeType: 0
   monsterMeleeType: 0
   monsterRangeType: 0

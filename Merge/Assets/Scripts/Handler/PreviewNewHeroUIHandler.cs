@@ -17,6 +17,8 @@ namespace MergeHero
         [SerializeField] private Image avatar;
         [SerializeField] private Text damegeTxt;
         [SerializeField] private Text healthTxt;
+        [SerializeField] private GameObject bg;
+        private GameObject newHero;
 
         void Start()
         {
@@ -36,6 +38,7 @@ namespace MergeHero
             canvasGroup.DOFade(0, fadeOutDur).onComplete += () =>
             {
                 gameObject.SetActive(false);
+                Destroy(newHero);
             };
         }
 
@@ -44,6 +47,17 @@ namespace MergeHero
             yield return null;
             CharacterSO characterSO = System.Array.Find(ChessCreater.Instance.characterSOs, character => character.nameChar == charName);
             avatar.sprite = characterSO.avatar;
+
+
+            newHero = Instantiate(characterSO.prefab, Vector3.zero, Quaternion.identity);
+            newHero.GetComponent<Animator>().SetTrigger("Victory");
+            Transform charTrans = newHero.transform;           
+            charTrans.SetParent(bg.transform);
+            charTrans.localPosition = new Vector3(0, -250, -200);
+            charTrans.localEulerAngles = new Vector3(0, 180, 0);
+            charTrans.localScale = Vector3.one * 180f;
+            charTrans.DOLocalRotate(new Vector3(0, -180, 0), 6, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
+
             damegeTxt.text = characterSO.damege.ToString();
             healthTxt.text = characterSO.health.ToString();
         }

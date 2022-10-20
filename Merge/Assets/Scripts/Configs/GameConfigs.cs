@@ -8,6 +8,9 @@ public static class GameConfigs
     public static readonly string BATMAN_NAME = "Batman";
     public static readonly string CAPTAIN_NAME = "Captain";
     public static readonly string HULK_NAME = "Hulk";
+    public static readonly string BLACK_PANTHER_NAME = "BlackPanther";
+    public static readonly string HARLEY_QUINN_NAME = "HarleyQuinn";
+
     public static readonly string SPIDERMAN_NAME = "SpiderMan";
     public static readonly string THOR_NAME = "Thor";
     public static readonly string DEMON_NAME = "Demon";

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
   m_Name: Captain
   m_EditorClassIdentifier: 
-  health: 40
-  damege: 6
-  power: 100
+  health: 1732
+  damege: 117
+  power: 1600
   nameChar: Captain
   attackRate: 1
   attackRange: 2.7
-  prefab: {fileID: 2566281353751500070, guid: 4e22b5d0507fa0740aa03c8e5e450917, type: 3}
+  prefab: {fileID: 4434429827222140316, guid: 9a62ca1038bfafb498c69f33a5c7c4c4, type: 3}
   bullet: {fileID: 0}
-  avatar: {fileID: 21300000, guid: c77c93649f14b9142b2193dd02c903a0, type: 3}
+  avatar: {fileID: 0}
   characterType: 0
   combatType: 0
-  heroMeleeType: 1
+  heroMeleeType: 5
   heroRangeType: 0
   monsterMeleeType: 0
   monsterRangeType: 0

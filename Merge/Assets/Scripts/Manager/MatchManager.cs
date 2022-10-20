@@ -489,7 +489,7 @@ namespace MergeHero
 
             if (haveCellEmpty)
             {
-                CreateChar(GameConfigs.CAPTAIN_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
+                CreateChar(GameConfigs.BLACK_PANTHER_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
             }
             else
             {

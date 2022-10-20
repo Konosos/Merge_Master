@@ -38,7 +38,7 @@ public class CharacterSO : ScriptableObject
 
 public enum CharacterType { Hero, Monster }
 public enum CombatType { Melee, Range}
-public enum HeroMeleeType { None, Captain, Thor, Hulk }
+public enum HeroMeleeType { None, BlackPanther, Batman, HarleyQuinn , Thor, Captain }
 public enum HeroRangeType { None, SpiderMan, GreenArrow, TheFlash, IronMan, DoctorStranger }
 public enum MonsterMeleeType { None, Red, Whitty, Blue, Kissy, Huggy }
 public enum MonsterRangeType { None, Orange, Green, LongLegs }

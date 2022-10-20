@@ -33,14 +33,14 @@ public class UserData
         playerMoney = 0;
         playerRanking = 15015;
         firstInGame = true;
-        purchasedHero = new string[2] { GameConfigs.SPIDERMAN_NAME, GameConfigs.CAPTAIN_NAME };
+        purchasedHero = new string[2] { GameConfigs.SPIDERMAN_NAME, GameConfigs.BLACK_PANTHER_NAME };
 
         numGameWin = 0;
         gameIndex = 1;
         DateTime dateTime = new DateTime(2001, 1, 1);
         lastSpinTime = (ulong)dateTime.Ticks;
 
-        chessNames = new string[2] {GameConfigs.SPIDERMAN_NAME, GameConfigs.CAPTAIN_NAME };
+        chessNames = new string[2] {GameConfigs.SPIDERMAN_NAME, GameConfigs.BLACK_PANTHER_NAME };
         chess_XBoard = new int[2] { 2, 2 };
         chess_YBoard = new int[2] { 0, 2 };
 
