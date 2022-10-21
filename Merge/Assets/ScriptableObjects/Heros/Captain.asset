@@ -20,6 +20,7 @@ MonoBehaviour:
   attackRange: 2.7
   prefab: {fileID: 4434429827222140316, guid: 9a62ca1038bfafb498c69f33a5c7c4c4, type: 3}
   bullet: {fileID: 0}
+  hitPartical: {fileID: 1089465354904564, guid: f0855940e22dbcd4aad5ca152a089348, type: 3}
   avatar: {fileID: 0}
   characterType: 0
   combatType: 0
