@@ -30,7 +30,10 @@ namespace MergeHero
             CharacterSO characterSO = Array.Find(characterSOs, character => character.nameChar == nameChar);
             GameObject charClone = Instantiate(charPrefab, pos, Quaternion.identity);
             CharacterStats charStats = charClone.GetComponent<CharacterStats>();
-
+            if (characterSO == null)
+            {
+                LogUtils.Log(nameChar);
+            }
             charStats.SetUpStats(characterSO.health, characterSO.damege, characterSO.nameChar, characterSO.characterType, characterSO.combatType, characterSO.power);
             charStats.SetBoardPos(xBoard, yBoard);
 
@@ -63,7 +66,7 @@ namespace MergeHero
             if(characterSO != null)
             {
 
-                return characterSO.name;
+                return characterSO.nameChar;
             }
             else
             {

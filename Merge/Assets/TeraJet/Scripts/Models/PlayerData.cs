@@ -55,30 +55,6 @@ namespace TeraJet
 
         public int[] _purchasedCharacterSkin;
 
-        //public PlayerData(Player player)
-        //{
-        //    _currentSkinId = player._currentSkinId;
-        //    userName = player.userName;
-        //    _currentWalkingId = player._currentWalkingId;
-        //    _currentRunningId = player._currentRunningId;
-        //    _currentCoin = player._currentCoin;
-        //    _currentDiamond = player._currentDiamond;
-        //    _musicVolumeSettings = player._musicVolumeSettings;
-        //    _soundFXVolumeSettings = player._soundFXVolumeSettings;
-        //    _isNotificationOn = player._isNotificationOn;
-        //    _isLiked = player._isLiked;
-        //    _isRated = player._isRated;
-        //    _qualitySettingsIndex = player._qualitySettingsIndex;
-        //    _joystickSettings = player._joystickSettings;
-        //    isGuest = player.isGuest;
-        //    _highTravel = player._highTravel;
-        //    _hightCoinEarned = player._hightCoinEarned;
-        //    _highDiamondEarned = player._highDiamondEarned;
-        //    _purchasedWalkingAnims = player._purchasedWalkingAnims.ToArray();
-        //    _purchasedRunningAnims = player._purchasedRunningAnims.ToArray();
-        //    _purchasedCharacterSkin = player._purchasedCharacterSkin.ToArray();
-        //}
-
         public PlayerData(PlayerData playerData)
         {
             _currentSkinId = playerData._currentSkinId;
@@ -128,7 +104,7 @@ namespace TeraJet
             _purchasedCharacterSkin = new int[1] { 1207 };
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return "player id: " + _playerId + "\n" + "Player current skin ID: " + _currentSkinId;
         }

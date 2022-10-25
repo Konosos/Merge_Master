@@ -96,7 +96,7 @@ namespace MergeHero
 
 
                 });
-                yield return new WaitForSeconds(0.15f);
+                yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForSeconds(0.5f);
             if (OnAnimationComplete != null)
@@ -120,6 +120,7 @@ namespace MergeHero
         public SpinUIHandler spinUIHandler;
 
         [SerializeField] private Text moneyTxt;
+        [SerializeField] private GameObject confetti;
 
         private void Start()
         {
@@ -137,6 +138,11 @@ namespace MergeHero
             MatchManager.OnMatchEnd += EndGameUiOpen;
             GameManager.OnMoneyChange += OnMoneyChange;
             EvenManager.OnPurchasedNewHero += PreviewHeroUiOpen;
+
+            TutorialManager.EndStep1 += BuyMeleeEnd;
+            TutorialManager.EndStep2 += BuyRangeEnd;
+            TutorialManager.EndStep3 += MergeEnd;
+            TutorialManager.EndStep4 += TutorialEnd;
         }
 
         private void OnDisable()
@@ -144,6 +150,11 @@ namespace MergeHero
             MatchManager.OnMatchEnd -= EndGameUiOpen;
             GameManager.OnMoneyChange -= OnMoneyChange;
             EvenManager.OnPurchasedNewHero -= PreviewHeroUiOpen;
+
+            TutorialManager.EndStep1 -= BuyMeleeEnd;
+            TutorialManager.EndStep2 -= BuyRangeEnd;
+            TutorialManager.EndStep3 -= MergeEnd;
+            TutorialManager.EndStep4 -= TutorialEnd;
         }
 
         public void SpinUIOpen()
@@ -180,7 +191,22 @@ namespace MergeHero
 
         public void EndGameUiOpen()
         {
-            endGameUIHandler.TurnOn();
+            if (GameManager.Instance.playerIsWinner)
+            {
+                ConfettiWinGamePlay();
+            }
+            
+            TeraJet.GameUtils.ExcuteFunction(endGameUIHandler.TurnOn, 3f);
+
+        }
+
+        private void ConfettiWinGamePlay()
+        {
+            ParticleSystem[] particleSystems = confetti.GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem par in particleSystems)
+            {
+                par.Play();
+            }
         }
 
         public void PreviewHeroUiOpen(string charName)
@@ -188,5 +214,81 @@ namespace MergeHero
             previewNewHeroUIHandler.TurnOn(charName);
         }
 
+        #region Tutorial
+        [SerializeField] private GameObject settingBtn;
+        [SerializeField] private GameObject spinBtn;
+
+        [SerializeField] private GameObject bonusMoney;
+        [SerializeField] private GameObject hand;
+        //[SerializeField] private GameObject moneyTxt;
+
+        public bool isInMergeStep;
+
+        public void StartTutorial()
+        {
+            settingBtn.gameObject.SetActive(false);
+            spinBtn.gameObject.SetActive(false);
+            gameStartUIHandler.SetBuyRangeBtn(false);
+            gameStartUIHandler.SetFightBtn(false);
+            bonusMoney.gameObject.SetActive(false);
+
+            gameStartUIHandler.SetBuyMeleeBtn(true);
+            //LogUtils.Log("Start Tutorial");
+        }
+
+        public void BuyMeleeEnd()
+        {
+            
+            gameStartUIHandler.SetBuyMeleeBtn(false);
+            gameStartUIHandler.SetBuyRangeBtn(true);
+            //LogUtils.Log("Buy Melee End");
+        }
+
+        public void BuyRangeEnd()
+        {
+            gameStartUIHandler.SetBuyRangeBtn(false);
+            isInMergeStep = true;
+            HandController(true);
+
+            //LogUtils.Log("Buy Range End");
+        }
+
+        public void MergeEnd()
+        {
+            gameStartUIHandler.SetFightBtn(true);
+            HandController(false);
+            //LogUtils.Log("Merge End");
+        }
+
+        public void TutorialEnd()
+        {
+            settingBtn.gameObject.SetActive(true);
+            spinBtn.gameObject.SetActive(true);
+            //gameStartUIHandler.SetBuyRangeBtn(true);
+            //gameStartUIHandler.SetBuyMeleeBtn(true);
+            //gameStartUIHandler.SetFightBtn(true);
+            bonusMoney.gameObject.SetActive(true);
+            if (GameManager.gameStates == GameManager.GameStates.Tutorial)
+            {
+                GameManager.gameStates = GameManager.GameStates.Simple;
+            }
+
+        }
+
+        private void HandController(bool isShow)
+        {
+            hand.SetActive(isShow);
+            Transform handTrans = hand.transform;
+            if (isShow)
+            {
+
+                handTrans.DOMoveX(1.5f, 1f).SetEase(Ease.InSine).SetLoops(-1, LoopType.Restart);
+            }
+            else
+            {
+                handTrans.DOKill();
+            }
+        }
+        #endregion
     }
 }

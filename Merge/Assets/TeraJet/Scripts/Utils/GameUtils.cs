@@ -85,6 +85,17 @@ namespace TeraJet
             return result;
         }
 
+        public static string GetRuntimeInternetStatus()
+        {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                return "NoInternet";
+            }
+            else
+            {
+                return "ReachableInternet";
+            }
+        }
         public static void ScaleIn(GameObject inGameObject)
         {
 

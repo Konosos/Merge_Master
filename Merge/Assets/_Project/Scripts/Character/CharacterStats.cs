@@ -81,6 +81,11 @@ namespace MergeHero
                     EvenManager.OnPurchasedNewHero.Invoke(charName);
                 }
             }
+
+            if(GameManager.gameStates == GameManager.GameStates.Tutorial && charName == GameConfigs.BATMAN_NAME)
+            {
+                TutorialManager.EndStep3.Invoke();
+            }
         }
 
         public IEnumerator DestroyMe()
@@ -121,7 +126,7 @@ namespace MergeHero
             model.transform.localPosition = Vector3.zero;
             model.transform.localEulerAngles = Vector3.one;
             modelParent.localScale = Vector3.one * 0.1f;
-            modelParent.DOScale(Vector3.one * (1.4f + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f), 0.2f);
+            modelParent.DOScale(Vector3.one * (1.2f + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f), 0.2f);
             //modelParent.localScale = Vector3.one * (1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f);
         }
 

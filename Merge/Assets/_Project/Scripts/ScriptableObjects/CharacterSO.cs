@@ -23,6 +23,7 @@ public class CharacterSO : ScriptableObject
     public MonsterRangeType monsterRangeType;
     public RangeAttackType rangeAttackType;
 
+
     private void OnValidate()
     {
         switch (combatType)
@@ -42,7 +43,7 @@ public enum CombatType { Melee, Range}
 public enum HeroMeleeType { None, BlackPanther, Batman, HarleyQuinn , Thor, Captain }
 public enum HeroRangeType { None, SpiderMan, GreenArrow, TheFlash, IronMan, DoctorStranger }
 public enum MonsterMeleeType { None, Red, Whitty, Blue, Kissy, Huggy }
-public enum MonsterRangeType { None, Orange, Green, LongLegs, Range4, Ranger5 }
+public enum MonsterRangeType { None, Orange, CartoonCat, LongLegs, Green, SCP }
 public enum RangeAttackType { None, SpiderMan, Batman, GreenArrow, IronMan, HovlLazer }
 public enum AnimStates { Idle, Run, Victory, Lose, Attack, Falling}
 

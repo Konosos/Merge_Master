@@ -44,6 +44,10 @@ namespace MergeHero
 
         public void SellWarrior()
         {
+            if(GameManager.gameStates == GameManager.GameStates.Tutorial)
+            {
+                TutorialManager.EndStep1.Invoke();
+            }
             if (GameManager.Instance.PlayerMoney < price)
                 return;
             GameManager.Instance.AddCoin(-price);

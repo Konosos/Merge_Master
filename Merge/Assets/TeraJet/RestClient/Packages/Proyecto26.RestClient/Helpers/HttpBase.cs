@@ -23,7 +23,7 @@ namespace Proyecto26
                         callback(null, response);
                         break;
                     }
-                    else if (!options.IsAborted && retries < options.Retries && request.isNetworkError)
+                    else if (!options.IsAborted && retries < options.Retries && request.result == UnityWebRequest.Result.ConnectionError)
                     {
                         yield return new WaitForSeconds(options.RetrySecondsDelay);
                         retries++;
@@ -61,7 +61,7 @@ namespace Proyecto26
 
         private static RequestException CreateException(RequestHelper options, UnityWebRequest request)
         {
-            return new RequestException(request.error, request.isHttpError, request.isNetworkError, request.responseCode, options.ParseResponseBody ? request.downloadHandler.text : "body not parsed");
+            return new RequestException(request.error, UnityWebRequest.Result.ProtocolError, UnityWebRequest.Result.ConnectionError, request.responseCode, options.ParseResponseBody ? request.downloadHandler.text : "body not parsed");
         }
 
         private static void DebugLog(bool debugEnabled, object message, bool isError)

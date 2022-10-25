@@ -54,7 +54,7 @@ namespace TeraJet
                 //this logic assumes only one type of notification is shown
                 //show high scores when the user clicks the notification
 
-                //UnityEngine.SceneManagement.SceneManager.LoadScene("HighScores");
+                
                 return;
             }
             else

@@ -100,7 +100,7 @@ namespace MergeHero
             }).OnComplete(() =>
             {
                 GameManager.Instance.AddCoin(spinRewards[rewardIndex].moneyReward);
-                GamePlayUIController.Instance.AddCoins(Vector3.zero, 7, null);
+                GamePlayUIController.Instance.AddCoins(Vector3.zero, 20, null);
                 spinning = false;
             });
         }

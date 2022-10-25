@@ -13,6 +13,11 @@ public static class GameConfigs
 
     public static readonly string SPIDERMAN_NAME = "SpiderMan";
     public static readonly string THOR_NAME = "Thor";
+    public static readonly string DOCTOR_STRANGER_NAME = "DoctorStranger";
+    public static readonly string IRONMAN_NAME = "Ironman";
+    public static readonly string GREENARROW_NAME = "GreenArrow";
+    public static readonly string THEFLASH_NAME = "TheFlash";
+
     public static readonly string DEMON_NAME = "Demon";
     public static readonly string HUGGY_NAME = "Huggy";
     public static readonly string KISSY_NAME = "Kissy";
@@ -22,10 +27,8 @@ public static class GameConfigs
     public static readonly string BLUE_NAME = "Blue";
     public static readonly string ORANGE_NAME = "Orange";
     public static readonly string GREEN_NAME = "Green";
-    public static readonly string DOCTOR_STRANGER_NAME = "DoctorStranger";
-    public static readonly string IRONMAN_NAME = "Ironman";
-    public static readonly string GREENARROW_NAME = "GreenArrow";
-    public static readonly string THEFLASH_NAME = "TheFlash";
+    public static readonly string CARTOON_CAT_NAME = "CartoonCat";
+    public static readonly string SCP_NAME = "Scp";
 
     // Sound key
     public static readonly string CLICK_KEY = "Click";

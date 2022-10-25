@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
+  m_Name: DoctorStranger
+  m_EditorClassIdentifier: 
+  health: 871
+  damege: 135
+  power: 1600
+  nameChar: DoctorStranger
+  attackRate: 1
+  attackRange: 1000
+  prefab: {fileID: 7703340717823970716, guid: 0b3557c1da60d654b84b3f42f2953615, type: 3}
+  bullet: {fileID: 3979005602982291582, guid: be6ad395c9e995040a447a45ce798d03, type: 3}
+  hitPartical: {fileID: 0}
+  avatar: {fileID: 0}
+  characterType: 0
+  combatType: 1
+  heroMeleeType: 0
+  heroRangeType: 5
+  monsterMeleeType: 0
+  monsterRangeType: 0
+  rangeAttackType: 3

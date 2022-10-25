@@ -30,19 +30,19 @@ public class UserData
     public UserData()
     {
         playerName = "You";
-        playerMoney = 0;
+        playerMoney = 600;
         playerRanking = 15015;
         firstInGame = true;
-        purchasedHero = new string[2] { GameConfigs.SPIDERMAN_NAME, GameConfigs.BLACK_PANTHER_NAME };
+        purchasedHero = new string[3] { GameConfigs.SPIDERMAN_NAME, GameConfigs.BLACK_PANTHER_NAME, GameConfigs.BATMAN_NAME };
 
         numGameWin = 0;
         gameIndex = 1;
         DateTime dateTime = new DateTime(2001, 1, 1);
         lastSpinTime = (ulong)dateTime.Ticks;
 
-        chessNames = new string[2] {GameConfigs.SPIDERMAN_NAME, GameConfigs.BLACK_PANTHER_NAME };
-        chess_XBoard = new int[2] { 2, 2 };
-        chess_YBoard = new int[2] { 0, 2 };
+        chessNames = new string[1] { GameConfigs.BLACK_PANTHER_NAME };
+        chess_XBoard = new int[1] {  2 };
+        chess_YBoard = new int[1] {  2 };
 
         soundOn = true;
         vibrateOn = true;

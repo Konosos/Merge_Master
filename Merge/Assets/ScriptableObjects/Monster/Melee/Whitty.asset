@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074e58655688c254fb9d16ce555fe51f, type: 3}
+  m_Name: Whitty
+  m_EditorClassIdentifier: 
+  health: 144
+  damege: 6
+  power: 200
+  nameChar: Whitty
+  attackRate: 1
+  attackRange: 2.7
+  prefab: {fileID: 8895928050078076738, guid: ac8f4a0b55cbeec49aa4544b1d98fab4, type: 3}
+  bullet: {fileID: 5481640524403763043, guid: 9391f7d6f8921f345b778f1e113c9fac, type: 3}
+  hitPartical: {fileID: 1089465354904564, guid: f0855940e22dbcd4aad5ca152a089348, type: 3}
+  avatar: {fileID: 0}
+  characterType: 1
+  combatType: 0
+  heroMeleeType: 0
+  heroRangeType: 0
+  monsterMeleeType: 2
+  monsterRangeType: 0
+  rangeAttackType: 2

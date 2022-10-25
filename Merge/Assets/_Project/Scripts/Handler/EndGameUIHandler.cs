@@ -196,7 +196,7 @@ namespace MergeHero
 
         public void OnSuccessRewardBonus()
         {
-            GamePlayUIController.Instance.AddCoins(rewardWatchTxt.gameObject.transform.position, 7, OnCoinAnimComplete);
+            GamePlayUIController.Instance.AddCoins(rewardWatchTxt.gameObject.transform.position, 20, OnCoinAnimComplete);
             GameManager.Instance.PlayerMoney += reward * index;
         }
 
@@ -214,7 +214,7 @@ namespace MergeHero
 
             SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.CLICK_KEY, 0.7f);
             //AdsController.Instance.ShowInterstitial();
-            GamePlayUIController.Instance.AddCoins(rewardEndGameTxt.gameObject.transform.position, 7, OnCoinAnimComplete);
+            GamePlayUIController.Instance.AddCoins(rewardEndGameTxt.gameObject.transform.position, 20, OnCoinAnimComplete);
         }
     }
 }

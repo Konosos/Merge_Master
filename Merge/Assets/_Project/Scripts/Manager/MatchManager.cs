@@ -48,6 +48,8 @@ namespace MergeHero
             CreateChar(GameConfigs.SPIDERMAN_NAME, 2, 1);*/
             //CreateChar(GameConfigs.LONGLEGS_NAME, 2, 6);
             //CreateChar(GameConfigs.LONGLEGS_NAME, 3, 5);
+            
+            //Spawn hero
             int totalPlayerpower = 0;
             UserData userData = GameManager.Instance.UserData;
             for (int i = 0; i < userData.chessNames.Length; i++)
@@ -58,7 +60,28 @@ namespace MergeHero
 
             }
 
-            SpawnMonster((int)(totalPlayerpower * 1.3f));
+            //Spawn enemy
+            if(userData.gameIndex > LevelManager.Instance.levelDatas.Length)
+            {
+                SpawnMonster((int)(totalPlayerpower * 1.3f));
+            }
+            else
+            {
+                LevelData levelData = LevelManager.Instance.GetLevelData(userData.gameIndex);
+                for (int i = 0; i < levelData.monsters.Length; i++)
+                {
+                    MonsterData monsters = levelData.monsters[i];
+                    GameObject hero = CreateChar(monsters.monsterName.ToString(), monsters.xBoard, monsters.yBoard);
+                    hero.layer = 9;
+
+                }
+            }
+            
+            if(userData.gameIndex == 1)
+            {
+                GameManager.gameStates = GameManager.GameStates.Tutorial;
+                GamePlayUIController.Instance.StartTutorial();
+            }
         }
 
         private void OnEnable()
@@ -84,6 +107,10 @@ namespace MergeHero
                 return;
             }
             #region Put and Merge
+
+            if (GameManager.gameStates == GameManager.GameStates.Tutorial && !GamePlayUIController.Instance.isInMergeStep)
+                return;
+
             if (Input.touchCount == 1)
             {
                 foreach (Touch t in Input.touches)
@@ -167,11 +194,13 @@ namespace MergeHero
                                 else
                                 {
                                     GameObject mergeClone = Instantiate(mergeParticel);
-                                    mergeClone.transform.position = new Vector3(-8 + 4 * curHeroInfor.xBoard, 1.5f, -12 + 4 * curHeroInfor.yBoard);
-                                    mergeClone.transform.localScale = Vector3.one * 2.5f;
+                                    mergeClone.transform.position = new Vector3(-8 + 4 * curHeroInfor.xBoard, 0.7f, -12 + 4 * curHeroInfor.yBoard);
+                                    mergeClone.transform.localScale = Vector3.one * 2.2f;
+
                                     GameObject obj = CreateChar(nextLvName, curHeroInfor.xBoard, curHeroInfor.yBoard);
                                     obj.layer = 8;
                                     SetPosEmty(charInfor.xBoard, charInfor.yBoard);
+
                                     SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.MERGE_KEY, 1f);
                                     StartCoroutine(charInfor.DestroyMe());
                                     StartCoroutine(curHeroInfor.DestroyMe());
@@ -351,7 +380,7 @@ namespace MergeHero
             if (monstersAllDie)
             {
                 GameManager.Instance.IsPlayerWinner(true);
-                
+                GameManager.Instance.GameIndex++;
                 if (OnMatchEnd != null)
                 {
                     
@@ -492,9 +521,12 @@ namespace MergeHero
             }
             go:;
 
+
             if (haveCellEmpty)
             {
                 CreateChar(GameConfigs.BLACK_PANTHER_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
+
+                ObjectPoolerManager.Instance.GetVFX("Smoke", new Vector3(-8 + 4 * (int)cellEmpty.x, 1.5f, -12 + 4 * (int)cellEmpty.y));
             }
             else
             {
@@ -506,6 +538,9 @@ namespace MergeHero
                     return;
                 CreateChar(nameOfNextLevel, characterStats.xBoard, characterStats.yBoard);
                 StartCoroutine(characterStats.DestroyMe());
+
+                ObjectPoolerManager.Instance.GetVFX("Smoke", new Vector3(-8 + 4 * characterStats.xBoard, 1.5f, -12 + 4 * characterStats.yBoard));
+                
             }
         }
 
@@ -527,9 +562,14 @@ namespace MergeHero
                 }
             }
         go:;
+
+
             if (haveCellEmpty)
             {
                 CreateChar(GameConfigs.SPIDERMAN_NAME, (int)cellEmpty.x, (int)cellEmpty.y);
+
+                ObjectPoolerManager.Instance.GetVFX("Smoke", new Vector3(-8 + 4 * (int)cellEmpty.x, 1.5f, -12 + 4 * (int)cellEmpty.y));
+
             }
             else
             {
@@ -541,6 +581,8 @@ namespace MergeHero
                     return;
                 CreateChar(nameOfNextLevel, characterStats.xBoard, characterStats.yBoard);
                 StartCoroutine(characterStats.DestroyMe());
+
+                ObjectPoolerManager.Instance.GetVFX("Smoke", new Vector3(-8 + 4 * characterStats.xBoard, 1.5f, -12 + 4 * characterStats.yBoard));
             }
         }
 

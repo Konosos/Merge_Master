@@ -15,6 +15,8 @@ namespace MergeHero
         public bool matchEnd = false;
         public bool playerIsWinner = false;
         public bool gameOver = false;
+        public enum GameStates { Simple, Tutorial}
+        public static GameStates gameStates;
 
         #region Sigleton
         public static GameManager Instance;
@@ -230,16 +232,7 @@ namespace MergeHero
             playerIsWinner = false;
             gameOver = false;
         }
-        public string RandomString(int lenght)
-        {
-            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            string generated_string = "";
-
-            for (int i = 0; i < lenght; i++)
-                generated_string += characters[UnityEngine.Random.Range(0, characters.Length)];
-
-            return generated_string;
-        }
+        
 
         public void AddCoin(int _coin)
         {
@@ -252,6 +245,7 @@ namespace MergeHero
         {
             playerIsWinner = isWin;
             matchEnd = true;
+
         }
 
         public void MatchStarted()

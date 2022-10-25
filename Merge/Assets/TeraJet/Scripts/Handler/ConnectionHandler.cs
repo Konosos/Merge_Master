@@ -9,7 +9,6 @@ namespace TeraJet
 {
     public class ConnectionHandler
     {
-
         public static bool CheckForInternetConnection(int timeoutMs = 10000, string url = null)
         {
             try

@@ -25,6 +25,7 @@ namespace MergeHero
         {
             if (!charController.characterStats.isDeath)
             {
+                charController.characterMovement.MoveIsStopped(true);
                 Victory();
             }
         }

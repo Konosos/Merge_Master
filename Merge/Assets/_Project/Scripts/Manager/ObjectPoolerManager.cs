@@ -27,6 +27,7 @@ namespace MergeHero
         public Queue<Pool> pools;
 
         [SerializeField] private GameObject moneyTxt;
+        [SerializeField] private GameObject smokeVFX;
 
         private void Start()
         {
@@ -39,7 +40,8 @@ namespace MergeHero
             pools = new Queue<Pool>();
 
             pools.Enqueue(new Pool { tag = "MoneyTxt", prefab = moneyTxt, size = 20 });
-            
+            pools.Enqueue(new Pool { tag = "Smoke", prefab = smokeVFX, size = 20 });
+
         }
         private void CreatePoolDictionary()
         {
@@ -72,6 +74,19 @@ namespace MergeHero
 
             }
             return getObj;
+        }
+
+        public void GetVFX(string key, Vector3 pos)
+        {
+            GameObject vfx = GetObject(key);
+            if (vfx == null)
+                return;
+            ParticleSystem[] particles = vfx.GetComponentsInChildren<ParticleSystem>();
+            vfx.transform.position = pos;
+            foreach (ParticleSystem par in particles)
+            {
+                par.Play();
+            }
         }
     }
 }

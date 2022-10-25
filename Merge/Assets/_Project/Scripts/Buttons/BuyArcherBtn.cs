@@ -43,6 +43,11 @@ namespace MergeHero
         }
         public void SellArcher()
         {
+            if (GameManager.gameStates == GameManager.GameStates.Tutorial)
+            {
+                TutorialManager.EndStep2.Invoke();
+            }
+
             if (GameManager.Instance.PlayerMoney < price)
                 return;
             GameManager.Instance.AddCoin(-price);
