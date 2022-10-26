@@ -195,7 +195,7 @@ namespace MergeHero
                                 {
                                     GameObject mergeClone = Instantiate(mergeParticel);
                                     mergeClone.transform.position = new Vector3(-8 + 4 * curHeroInfor.xBoard, 0.7f, -12 + 4 * curHeroInfor.yBoard);
-                                    mergeClone.transform.localScale = Vector3.one * 2.2f;
+                                    mergeClone.transform.localScale = Vector3.one * 2.4f;
 
                                     GameObject obj = CreateChar(nextLvName, curHeroInfor.xBoard, curHeroInfor.yBoard);
                                     obj.layer = 8;

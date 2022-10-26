@@ -75,6 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3758347600937392313}
   - component: {fileID: 6534340326848395523}
+  - component: {fileID: 1339798382372334695}
   m_Layer: 0
   m_Name: Doctor_Stranger
   m_TagString: Untagged
@@ -116,7 +117,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 155ff86e2af612549a9bcb16245f30cf, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,6 +174,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000007566996, y: -0.003399542, z: -0.0011011469}
     m_Extent: {x: 0.014892779, y: 0.016929781, z: 0.0065237093}
   m_DirtyAABB: 0
+--- !u!114 &1339798382372334695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106407509414796402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &1443820406059219618
 GameObject:
   m_ObjectHideFlags: 0

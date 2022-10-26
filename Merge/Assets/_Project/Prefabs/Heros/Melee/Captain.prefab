@@ -524,6 +524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9061020431638306079}
   - component: {fileID: 1340792665346230780}
+  - component: {fileID: 8661651453742359700}
   m_Layer: 0
   m_Name: Captain
   m_TagString: Untagged
@@ -565,7 +566,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a9aa9a821104ee848af6d1df3c95a4c9, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -623,6 +623,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00047023967, y: -0.0021757176, z: 0.003302194}
     m_Extent: {x: 0.010662322, y: 0.0153413275, z: 0.0060314136}
   m_DirtyAABB: 0
+--- !u!114 &8661651453742359700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468353397186664307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5743871063991409908
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,3 +20,6 @@ MonoBehaviour:
   - monsterName: 5
     xBoard: 2
     yBoard: 6
+  - monsterName: 5
+    xBoard: 0
+    yBoard: 6

@@ -45,6 +45,8 @@ namespace MergeHero
         private IEnumerator OnTurnOn(string charName)
         {
             yield return null;
+            SoundManager.Instance.PlaySFXByPublicSource(GameConfigs.PREVIEW_KEY, 0.8f);
+
             CharacterSO characterSO = System.Array.Find(ChessCreater.Instance.characterSOs, character => character.nameChar == charName);
             avatar.sprite = characterSO.avatar;
 

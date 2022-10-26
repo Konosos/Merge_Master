@@ -15,5 +15,5 @@ namespace MergeHero
     }
 
 
-    public enum MonsterName { Red , Whitty , Blue , Kissy , Huggy , Orange , Green , LongLegs , Range4 , Range5}
+    public enum MonsterName { Red , Whitty , Blue , Kissy , Huggy , Orange , CartoonCat, LongLegs , Green, Scp }
 }

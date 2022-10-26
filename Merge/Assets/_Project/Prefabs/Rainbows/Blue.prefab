@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1330797219902688315}
   - component: {fileID: 592590185336916930}
+  - component: {fileID: 7365955492607811147}
   m_Layer: 0
   m_Name: Blue
   m_TagString: Untagged
@@ -82,7 +83,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 04d8ede5b3d7e2342b88f04541493e65, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -140,6 +140,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00026194612, y: 0.0056452295, z: 0.0068482966}
     m_Extent: {x: 0.013842752, y: 0.018270414, z: 0.012151999}
   m_DirtyAABB: 0
+--- !u!114 &7365955492607811147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180849971663948382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &227483674034577872
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +949,7 @@ Transform:
   m_GameObject: {fileID: 7700156864286907530}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 2100777633661900462}
   - {fileID: 1330797219902688315}

@@ -73,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5805192896577979002}
   - component: {fileID: 7880579788288933979}
+  - component: {fileID: 5346622362013338415}
   m_Layer: 0
   m_Name: SCP_096_chibi
   m_TagString: Untagged
@@ -114,7 +115,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 37941af817b91e8458c25353a96a30f4, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -188,6 +188,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00068020355, y: 0.002024713, z: 0.0061909426}
     m_Extent: {x: 0.016222771, y: 0.020109363, z: 0.00995001}
   m_DirtyAABB: 0
+--- !u!114 &5346622362013338415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607935461009155970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &610716951468010751
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +850,7 @@ Transform:
   m_GameObject: {fileID: 4570351286822564428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 5230407297831106664}
   - {fileID: 5805192896577979002}

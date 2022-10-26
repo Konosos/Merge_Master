@@ -167,4 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 60
   lineRenderer: {fileID: 6368346867250261020}
-  hitParticle: {fileID: 7517716816122028799, guid: d89359f47f4128c418f9e29bbdd13da3, type: 3}
+  hitParticle: {fileID: 3852063749565370029, guid: 6591f1131e850dd4c825878a7efab65a, type: 3}

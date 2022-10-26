@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847910385365288120}
   - component: {fileID: 5629788948545281393}
+  - component: {fileID: 3634633826401275152}
   m_Layer: 0
   m_Name: Batman
   m_TagString: Untagged
@@ -300,7 +301,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1986d751dce51324eb270d0846e1e584, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -358,6 +358,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00046901777, y: -0.0019739922, z: 0.0032988354}
     m_Extent: {x: 0.010631045, y: 0.015545016, z: 0.005991057}
   m_DirtyAABB: 0
+--- !u!114 &3634633826401275152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3555270909428204545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3722792814889225334
 GameObject:
   m_ObjectHideFlags: 0

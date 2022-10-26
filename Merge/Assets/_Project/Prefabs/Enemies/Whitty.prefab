@@ -535,6 +535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2372801687644756089}
   - component: {fileID: 134873989756906412}
+  - component: {fileID: 3458055336699423448}
   m_Layer: 0
   m_Name: Whitty
   m_TagString: Untagged
@@ -576,7 +577,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1790019253445041724, guid: 7d9a72902cbb9e24e86ee1953dc2ca36, type: 3}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -658,6 +658,24 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0005488647, y: -0.00045060925, z: 0.0053742677}
     m_Extent: {x: 0.015017812, y: 0.019397067, z: 0.01124463}
   m_DirtyAABB: 0
+--- !u!114 &3458055336699423448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949182864491916148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2290809197060095360
 GameObject:
   m_ObjectHideFlags: 0

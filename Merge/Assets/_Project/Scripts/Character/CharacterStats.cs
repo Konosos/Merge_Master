@@ -45,8 +45,13 @@ namespace MergeHero
 
         private void OnEnable()
         {
+            EvenManager.OnGameStarted += TurnOnHealthBar;
             
-            
+        }
+
+        private void OnDisable()
+        {
+            EvenManager.OnGameStarted -= TurnOnHealthBar;
         }
 
         private void OnDestroy()
@@ -61,6 +66,11 @@ namespace MergeHero
                     MatchManager.Instance.monstersInMatch.Remove(this);
                     break;
             }
+        }
+
+        private void TurnOnHealthBar()
+        {
+            healthBar.gameObject.SetActive(true);
         }
 
         private IEnumerator OnHeroSpawn()
@@ -126,7 +136,7 @@ namespace MergeHero
             model.transform.localPosition = Vector3.zero;
             model.transform.localEulerAngles = Vector3.one;
             modelParent.localScale = Vector3.one * 0.1f;
-            modelParent.DOScale(Vector3.one * (1.2f + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f), 0.2f);
+            modelParent.DOScale(Vector3.one * (1.8f + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.1f), 0.2f);
             //modelParent.localScale = Vector3.one * (1 + (ChessCreater.Instance.GetLevel(charName) - 1) * 0.2f);
         }
 

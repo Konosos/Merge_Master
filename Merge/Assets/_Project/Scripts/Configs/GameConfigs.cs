@@ -53,6 +53,8 @@ public static class GameConfigs
     public static readonly string BUY_NEW_KEY = "BuyNewHero";
     public static readonly string BUY_BTN_KEY = "BuyBtn";
     public static readonly string VECTOR_RUN_KEY = "VectorRun";
+    public static readonly string PREVIEW_KEY = "PreviewNewHero";
+    public static readonly string FIREWORK_KEY = "ExplosionFirework";
 
 }
 

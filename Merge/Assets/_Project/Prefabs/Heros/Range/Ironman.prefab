@@ -588,6 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7151612240795031300}
   - component: {fileID: 7715883791358435422}
+  - component: {fileID: 4595441619289046163}
   m_Layer: 0
   m_Name: Iron_man
   m_TagString: Untagged
@@ -629,7 +630,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8e517931fc526e44fb2551ed1eb13020, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -687,6 +687,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0000007641502, y: -0.0033713244, z: 0.00041837478}
     m_Extent: {x: 0.014981024, y: 0.017072592, z: 0.0050674495}
   m_DirtyAABB: 0
+--- !u!114 &4595441619289046163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733493171145466973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5843896909585990369
 GameObject:
   m_ObjectHideFlags: 0

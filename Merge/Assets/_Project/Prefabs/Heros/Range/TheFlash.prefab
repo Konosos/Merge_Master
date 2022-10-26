@@ -738,6 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4380904442335618842}
   - component: {fileID: 7089171360076689906}
+  - component: {fileID: 5433999114479086022}
   m_Layer: 0
   m_Name: The_Flash
   m_TagString: Untagged
@@ -779,7 +780,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 86d8800da5436b44d8b14ef164f08210, type: 2}
-  - {fileID: 2100000, guid: 92f029686fbbb474a8417e2ad0106aeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -837,6 +837,24 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000074645504, y: -0.0036122575, z: 0.00092349155}
     m_Extent: {x: 0.014889346, y: 0.016791727, z: 0.004579526}
   m_DirtyAABB: 0
+--- !u!114 &5433999114479086022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7557695721201346114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7600734793958268666
 GameObject:
   m_ObjectHideFlags: 0

@@ -282,7 +282,7 @@ namespace MergeHero
             if (isShow)
             {
 
-                handTrans.DOMoveX(1.5f, 1f).SetEase(Ease.InSine).SetLoops(-1, LoopType.Restart);
+                handTrans.DOMoveX(0f, 1f).SetEase(Ease.InSine).SetLoops(-1, LoopType.Restart);
             }
             else
             {
